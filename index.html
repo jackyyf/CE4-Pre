@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1024" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link href="css/impress.css" rel="stylesheet" />
+		<title>Presentation - Find the shortest path</title>
+	</head>
+	<body>
+		<div class="fallback-message">
+			<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+			<p>For the best experience please use the latest <b> Chrome </b>, <b> Safari </b> or <b> Firefox </b> browser.</p>
+		</div>
+		<div id="impress">
+			<div id="title" class="step slide" data-x="-3000" data-y="0">
+				<div id="title_primary" style="font-size: 72px; width: inherit; margin-top: 25%; text-align: center; display: none; position: absolute;" id="title_text" data-cursor="0" data-length="500" data-animation="show">
+					Find the shortest path. <br />
+				</div>
+				<div id="title_secondary" style="font-size: 36px; width: 95%; margin-top: 40%; margin-right: 10%; text-align: right; display: none; position: absolute;" id="title_text" data-animation="fadeIn" data-cursor="1" data-length="1000">
+					The algorithms. <br />
+				</div>
+				<div id="title_selfinfo" style="font-size: 24px; width: 90%; margin-top: 60%; margin-right: 15%; text-align: right; color: #888; font-family: sans; position: absolute;">
+					Yifu Yu(13307130355)
+				</div>
+			</div>
+			<div id="intro" class="step slide" data-x="2000" data-y="0" data-z="3000" data-scale="2" data-rotate="30">
+				<h2 style="font-size: 48px;">Graph</h2>
+				<div id="intro_main1" style="margin-top: 2%; padding: 0 3%; font-size: 28px; display: none; line-height: 36px;" data-animation="fadeIn" data-length="1000">
+					&nbsp; &nbsp; Graph G = {V, E}
+				</div>
+				<img id="intro_graph" style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%;" src="img/graph.png" data-animation="fadeIn" data-cursor="1" data-length="500" />
+				<div id="intro_main2" style="margin-top: 2%; padding: 0 3%; font-size: 28px; display: none; line-height: 36px;" data-animation="fadeIn" data-length="1000">
+					&nbsp; &nbsp; V =&gt; The set of vertices { v<sub>i</sub> }
+				</div>
+				<img id="intro_vertex" style="z-index: -232; display: none; position: absolute; left: 70%; top: 20%; width: 25%;" src="img/vertices.png" data-animation="fadeIn" data-cursor="2" data-length="500" />
+				<div id="intro_main3" style="margin-top: 2%; padding: 0 3%; font-size: 28px; display: none; line-height: 36px;" data-animation="fadeIn" data-length="1000">
+					&nbsp; &nbsp; E =&gt; The set of edges { (v<sub>i</sub>, v<sub>j</sub>, w<sub>ij</sub>) }
+				</div>
+				<img id="intro_edge" style="z-index: -231; display: none; position: absolute; left: 70%; top: 20%; width: 25%;" src="img/edges.png" data-animation="fadeIn" data-cursor="3" data-length="500" />
+				<div id="intro_main4" style="margin-top: 2%; padding: 0 3%; font-size: 28px; display: none; line-height: 36px;" data-animation="fadeIn" data-length="1000">
+					&nbsp; &nbsp; Edges may have directions.
+				</div>
+				<img id="intro_edge" style="z-index: -231; display: none; position: absolute; left: 70%; top: 20%; width: 25%;" src="img/directions.png" data-animation="fadeIn" data-cursor="4" data-length="500" />
+			</div>
+			<div id="dijkstra-title" class="step" data-x="1500" data-y="0" data-z="-2000" data-scale="2" data-rotate="90">
+				<h1 style="font-size: 64px">Dijkstra's algorithm:</h1>
+				<h3 style="width: 100%; text-align: center; font-size: 36px; display: none;" data-animation="show" data-length="750"> And the man.</h3>
+			</div>
+			<div id="dijkstra-intro" class="step slide" style="color: #333; " data-x="600" data-y="-780" data-z="-1500" data-scale="1" data-rotate="0">
+				<h1 style="font-size: 42px;">Who is Dijkstra? </h1>
+				<div style="font-size: 32px; margin-left: 2%; margin-top: 3%; display: none;" data-length="1500" data-animation="show" data-cursor="2">
+					Edsger Wybe Dijkstra (1930-2002)
+				</div>
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 20%;" src="img/dijkstra.jpg" data-animation="fadeIn" data-cursor="2" data-length="1500" />
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					A Dutch computer scientist.
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					Received the 1972 Turing Award.	
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					Known for many famous algorithms.
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					A <b><i>Dijkstra Price</i></b> was introduced in 2002.
+				</div>
+				<div style="font-size: 12px; position: absolute; text-align: right; display: none; top: 90%; left: 20%; width: 75%;" data-length="2000" data-animation="fadeIn" data-cursor="2">
+					[1]: Photoed by: Hamilton Richards - manuscripts of Edsger W. Dijkstra, University Texas at Austin. Licensed under CC BY-SA 3.0.
+				</div>
+			</div>
+			<div id="dijkstra-algo" class="step slide" style="color: #333; " data-x="600" data-y="40" data-z="-1500" data-scale="1" data-rotate="0">
+				<h1 style="font-size: 42px;">The algorithm.</h1>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					Given a graph G = {V, E}, a start point S and a target point T.
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					Output the shortest distance between S and T in graph G.
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					And the shortest path.
+				</div>
+			</div>
+			<div id="dijkstra-step" class="step slide" style="color: #333; " data-x="600" data-y="860" data-z="-1500" data-scale="1" data-rotate="0">
+				<h1 style="font-size: 42px;">Steps to achieve.</h1>
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px; width: 68%; " data-length="1500" data-animation="fadeIn">
+					1. Set all vertices with an infinite distance, except the start point S set to 0.
+				</div>
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step1.png" data-animation="fadeIn" data-cursor="1" data-length="1500" />
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px; width: 68%; " data-length="1500" data-animation="fadeIn">
+					2. Find out the vertex with the smallest distance, named N. Exit if N is the target point.
+				</div>
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px;" data-length="1500" data-animation="fadeIn">
+					3. Update the distance of vertices connected to N.
+				</div>
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step2-1.png" data-animation="fadeIn" data-cursor="3" data-length="1500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step2-2.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step2-3.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step2-4.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step2-5.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step2-6.png" data-animation="fadeIn" data-length="500" />
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px;" data-length="1500" data-animation="show">
+					4. Mark N as out. Return to step 2.
+				</div>
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step3.png" data-animation="fadeIn" data-cursor="9" data-length="1500" />
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px;" data-length="1500" data-animation="show">
+					Repeat until exit.
+				</div>
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-8.png" data-animation="fadeIn" data-cursor="10" data-length="1500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-8.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-9.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-10.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-11.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-12.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-13.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-14.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-15.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-16.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-17.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-18.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-19.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-20.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-21.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-22.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-23.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-24.png" data-animation="fadeIn" data-length="500" />
+				<img style="z-index: -233; display: none; position: absolute; left: 70%; top: 20%; width: 25%; " src="img/step-25.png" data-animation="fadeIn" data-length="500" />
+			</div>
+			<div id="bf-title" class="step" style="color: #333; " data-x="-1300" data-y="0" data-z="-3000" data-scale="3" data-rotate="270">
+				<h1 style="font-size: 64px">More complex situation:</h1>
+				<h3 style="width: 100%; text-align: center; font-size: 36px; display: none;" data-animation="show" data-length="750">with negative edge weights</h3>
+			</div>
+			<div id="bf-intro" class="step slide" style="color: #333; " data-x="-400" data-y="410" data-z="-3000" data-scale="0.75" data-rotate="270">
+				<h1 style="font-size: 42px;">Bellman-Ford algorithm</h1>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					Named after two of its developers: <br />
+					&nbsp; &nbsp; Richard Bellman, published the algorithm in 1958 <br />
+					&nbsp; &nbsp; Lester Ford, Jr., published the algorithm in 1956
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					Can handle a graph with negative edge weights.
+				</div>
+				<div style="font-size: 28px; margin-left: 2%; margin-top: 3%; display: none; line-height: 36px;" data-length="1500" data-animation="fadeIn">
+					And it can find out the existence of negative cycles <br />
+					&nbsp; &nbsp; (a cycle which the sum of weights is negative)
+				</div>
+
+			</div>
+			<div id="bf-step" class="step slide" style="color: #333; " data-x="-400" data-y="-410" data-z="-3000" data-scale="0.75" data-rotate="270">
+				<h1 style="font-size: 42px;">Steps to achieve</h1>
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px;" data-length="1500" data-animation="fadeIn">
+					1. Set all vertices with an infinite distance, except the start point S set to 0.
+				</div>
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px;" data-length="1500" data-animation="fadeIn">
+					2. "Relax" edges: <br /> for each edge (u, v, w), replace dist[v] with dist[u] + w, if later one is smaller. Repeat |V| times.
+				</div>
+				<div style="font-size: 24px; margin-left: 2%; margin-top: 3%; display: none; line-height: 32px;" data-length="1500" data-animation="fadeIn">
+					3. Negative cycle check: <br />for each edge(u, v, w), if dist[u] + w is smaller than dist[v], it can be proved there is a negative cycle.
+				</div>
+			</div>
+			<div id="end" class="step slide" style="color: #333; " data-x="-400" data-y="0" data-z="-12000" data-scale="0.75" data-rotate="270">
+				<div id="end_title" style="font-size: 72px; line-height: 80px; margin-top: 30%; display: none; " data-animation="fadeIn" data-length="1000">
+					Thanks for watching!
+				</div>
+				<div id="end_email" style="font-size: 24px; line-height: 32px; margin-top: 2%; margin-right: 5%; text-align: right; width: 100%; display: none;" data-animation="fadeIn", data-length="500">
+					My Mailbox: <b><i>root@jackyyf.com</i></b>
+				</div>
+				<div id="end_credit" style="font-size: 20px; line-height: 24px; margin-top: 2%; margin-right: 3%; text-align: right; width: 100%; display: none;" data-animation="fadeIn", data-length="500">
+					Made with impress.js, jQuery and my own modification :)
+				</div>
+
+			</div>
+		</div>
+		<script src="js/impress.js" language="javascript" type="text/javascript"></script>
+		<script src="js/jquery.min.js" language="javascript" type="text/javascript"></script>
+		<script src="js/jquery.animate-colors-min.js" language="javascript" type="text/javascript"></script>
+		<script src="js/inpage_animation.js" language="javascript" type="text/javascript"></script>
+		<script language="javascript" type="text/javascript">
+			window.impress && impress().init();
+		</script>
+	</body>
+</html>
